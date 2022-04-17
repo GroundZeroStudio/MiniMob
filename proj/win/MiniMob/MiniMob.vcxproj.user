@@ -4,4 +4,9 @@
     <LocalDebuggerWorkingDirectory>$(ProjectDir)/../../../</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)/../../../</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)/../Dll;%PATH%;</LocalDebuggerEnvironment>
+  </PropertyGroup>
 </Project>

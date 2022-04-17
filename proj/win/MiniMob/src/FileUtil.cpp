@@ -25,3 +25,28 @@ unsigned char* FileUtil::LoadFile(const char* filename)
 	fclose(f);
 	return data;
 }
+
+char* FileUtil::LoadFileString(const char* filename)
+{
+	int filename_len = strlen(filename);
+	char* fullpath = new char[5 + filename_len];
+	fullpath[0] = 'r';
+	fullpath[1] = 'e';
+	fullpath[2] = 's';
+	fullpath[3] = '/';
+	memcpy(fullpath + 4, filename, filename_len);
+	fullpath[filename_len + 4] = 0;
+	FILE* f = fopen(fullpath, "r");
+	delete[] fullpath;
+	if (!f)
+		return 0;
+	fseek(f, 0, SEEK_END);
+	long size = ftell(f);
+	fseek(f, 0, SEEK_SET);
+	char* data = new char[size + 1];
+	int offset = 0;
+	int readed = fread(data, 1, size, f);
+	data[readed] = 0;
+	fclose(f);
+	return data;
+}

@@ -1,40 +1,31 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <GLFW/glfw3.h>
-#include <GL/GL.h>
 #include "Game.h"
 #include "Graphics.h"
+#include "EGLUtil.h"
 
-GLFWwindow* CreateGameWindow(int width, int height)
+Game* game;
+
+void GameUpdate()
 {
-	GLFWwindow* window;
+	game->Update();
+}
 
-	if (!glfwInit())
-		return 0;
-	window = glfwCreateWindow(width, height, "Mini Mob Engine", NULL, NULL);
-	if (!window)
-	{
-		glfwTerminate();
-		return 0;
-	}
-	glfwMakeContextCurrent(window);
-	return window;
+void RenderPipline()
+{
+	game->RenderPipline();
 }
 
 int main()
 {
-	GLFWwindow* window = CreateGameWindow(1280, 720);
-	Game* game = new Game();
+	EGLUtil * eglUtil = new EGLUtil(RenderPipline, GameUpdate);
+	eglUtil->CreateEGLWindow("Mini Mob", 1280, 720);
 	Graphics::InitGL(1280, 720);
-	while (true)
-	{
-		glfwPollEvents();
-		game->Update();
-		game->RenderPipline();
-		glfwSwapBuffers(window);
-	}
+	game = new Game();
+
+	eglUtil->WindLoop();
+	
 	delete game;
-	glfwTerminate();
-	std::cin.get();
+	delete eglUtil;
 	return 0;
 }

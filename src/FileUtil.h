@@ -4,5 +4,6 @@ class FileUtil
 {
 public:
 	static unsigned char* LoadFile(const char* filename);
+	static char* LoadFileString(const char* filename);
 };
 #endif

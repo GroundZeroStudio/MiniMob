@@ -3,7 +3,7 @@
 
 Game::Game()
 {
-	_testMesh = new TestMesh("test1.bmp");
+	_testMesh = new TestMesh("test1.bmp", 200, 200, 256, 256);
 }
 
 Game::~Game()

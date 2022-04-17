@@ -19,11 +19,11 @@
     <Filter Include="源文件\proj">
       <UniqueIdentifier>{a5047716-249f-4f6b-9165-17ffb162538c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\src\graphics">
+      <UniqueIdentifier>{ff3bd083-76c2-45e2-931d-a9a6a4d495f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Main.cpp">
-      <Filter>源文件\proj</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\Game.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
@@ -35,6 +35,15 @@
     </ClCompile>
     <ClCompile Include="src\FileUtil.cpp">
       <Filter>源文件\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>源文件\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EGLUtil.cpp">
+      <Filter>源文件\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Graphics\Shader.cpp">
+      <Filter>源文件\src\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +59,13 @@
     <ClInclude Include="..\..\..\src\TestMesh.h">
       <Filter>源文件\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\native-activity\app\src\main\cpp\FileUtil.h">
+    <ClInclude Include="src\EGLUtil.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Graphics\Shader.h">
+      <Filter>源文件\src\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\FileUtil.h">
       <Filter>源文件\src</Filter>
     </ClInclude>
   </ItemGroup>
